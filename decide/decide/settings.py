@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,6 +27,19 @@ SECRET_KEY = '^##ydkswfu0+=ofw0l#$kv^8n)0$i(qd&d&ol#p9!b$8*5%j1+'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+APIS = {
+    'authentication': 'https://git.heroku.com/egc-prueba-examen.git',
+    'base': 'https://git.heroku.com/egc-prueba-examen.git',
+    'booth': 'https://git.heroku.com/egc-prueba-examen.git',
+    'census': 'https://git.heroku.com/egc-prueba-examen.git',
+    'mixnet': 'https://git.heroku.com/egc-prueba-examen.git',
+    'postproc': 'https://git.heroku.com/egc-prueba-examen.git',
+    'store': 'https://git.heroku.com/egc-prueba-examen.git',
+    'visualizer': 'https://git.heroku.com/egc-prueba-examen.git',
+    'voting': 'https://git.heroku.com/egc-prueba-examen.git',
+}
 
 
 # Application definition
@@ -152,6 +166,7 @@ STATIC_URL = '/static/'
 
 # number of bits for the key, all auths should use the same number of bits
 KEYBITS = 256
+django_heroku.settings(locals())
 
 try:
     from local_settings import *
